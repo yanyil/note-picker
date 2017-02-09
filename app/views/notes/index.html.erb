@@ -1,0 +1,9 @@
+<% if @notes.any? %>
+  <% @notes.each do |note| %>
+    <h2> <%= note.name %> </h2>
+  <% end %>
+<% else %>
+  No notes have been selected yet!
+<% end %>
+
+<a href='#'>Add notes</a>
