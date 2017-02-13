@@ -30,5 +30,16 @@ feature 'notes' do
       expect(page).to have_content 'C'
       expect(current_path).to eq '/notes'
     end
+
+    scenario 'same note cannot be added twice' do
+      visit '/notes'
+      click_link 'Add notes'
+      select 'C'
+      click_button 'Add notes'
+      click_link 'Add notes'
+      select 'C'
+      click_button 'Add notes'
+      expect(page).to have_content 'C', count: 1
+    end
   end
 end
